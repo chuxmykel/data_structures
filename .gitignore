@@ -1,0 +1,5 @@
+# build foler
+build/
+
+# node modules
+node_modules
