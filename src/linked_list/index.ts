@@ -33,6 +33,7 @@ export class LinkedList {
 
     let current: Node | null = this.head;
 
+    // ❗This can be avoided by keeping reference to the tail of the list as well
     while(current !== null) {
       if(current.next === null) {
         current.next = node;
