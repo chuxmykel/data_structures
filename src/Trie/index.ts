@@ -11,37 +11,36 @@ export class Node {
   }
 
   private _add(str: string, index: number): void {
-    if(index === str.length) return;
+    if (index === str.length) return;
 
     const current: string = str.charAt(index);
-    
+
     let child: Node = this.getNode(current);
 
-    if(!child) {
+    if (!child) {
       child = new Node();
       this.setNode(current, child);
     }
 
-    if(index + 1 === str.length) {
+    if (index + 1 === str.length) {
       child._isCompleteWord = true;
     }
 
     // Recursively add each character of the string to the TRIE
     child._add(str, index + 1);
-  } 
-
+  }
 
   private _find(str: string, index: number): boolean {
-    if(index === str.length) return true;
+    if (index === str.length) return true;
 
     const current: string = str.charAt(index);
-    
+
     let child: Node = this.getNode(current);
 
-    if(!child) {
+    if (!child) {
       return false;
     }
-    
+
     return child._find(str, index + 1);
   }
 
@@ -52,17 +51,17 @@ export class Node {
 
     let child: Node = this.getNode(current);
 
-    if(!child) {
+    if (!child) {
       return false;
     }
-    
+
     return child.checkCompleteWord(str, index + 1);
   }
 
   public add(str: string): void {
     this._add(str, 0);
   }
-  
+
   public find(str: string): boolean {
     return this._find(str, 0);
   }

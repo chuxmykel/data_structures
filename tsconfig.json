@@ -4,13 +4,21 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
-    "outDir": "build",
+    "outDir": "dist",
     "rootDir": "src",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "types": ["node", "@types/jest"],
+    "typeRoots" : ["./node_modules/@types"],
+    "inlineSourceMap": true,
+    "inlineSources": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude" : [
+    "src/**/*.spec.ts"
+  ]
 }

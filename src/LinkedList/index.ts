@@ -34,8 +34,8 @@ export class LinkedList {
     let current: Node | null = this.head;
 
     // ❗This can be avoided by keeping reference to the tail of the list as well
-    while(current !== null) {
-      if(current.next === null) {
+    while (current !== null) {
+      if (current.next === null) {
         current.next = node;
         return;
       }
@@ -46,11 +46,12 @@ export class LinkedList {
   public toArray(): any[] {
     const listArray: any[] = [];
 
-    if(this.isEmpty()) return listArray; /* Return an empty array if list is empty */
+    if (this.isEmpty())
+      return listArray; /* Return an empty array if list is empty */
 
     let current: Node | null = this.head;
 
-    while(current !== null) {
+    while (current !== null) {
       listArray.push(current.data);
       current = current?.next;
     }

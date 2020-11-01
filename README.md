@@ -1,2 +1,2 @@
 # data_structures
-Data structures practice
+Data structures and algorithm practice
