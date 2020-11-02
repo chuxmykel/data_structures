@@ -36,13 +36,11 @@ export function isBalanced(expression: Surround): boolean {
 
   for (let c of expression) {
     const char = <Surround>c;
-    if (true) {
-      if (isOpenTerm(char)) {
-        stack.push(char);
-      } else {
-        if (stack.isEmpty || !matches(stack.pop(), char)) {
-          return false;
-        }
+    if (isOpenTerm(char)) {
+      stack.push(char);
+    } else {
+      if (stack.isEmpty || !matches(stack.pop(), char)) {
+        return false;
       }
     }
   }
