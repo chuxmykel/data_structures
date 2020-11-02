@@ -24,7 +24,6 @@ describe('isBalanced()', () => {
     expect(isBalanced(<Surround>'(([]{<>}([<<>>])))')).toBe(true);
   });
 
-
   it('(())', () => {
     expect(isBalanced(<Surround>'(())')).toBe(true);
   });
