@@ -7,7 +7,9 @@ class Queue {
   private head: Node | null = null;
   private tail: Node | null = null;
 
-  get isEmpty(): boolean { return this.head === null; }
+  get isEmpty(): boolean {
+    return this.head === null;
+  }
 
   public peek(): number {
     if (this.head === null) {
@@ -25,15 +27,17 @@ class Queue {
       this.tail.next = node;
       this.tail = this.tail.next;
     }
-    console.log(this.toString())
+    console.log(this.toString());
   }
 
   public dequeue(): number {
-    if (this.head === null) { throw new Error('Queue is empty') }
+    if (this.head === null) {
+      throw new Error('Queue is empty');
+    }
     const { data } = this.head;
     this.head = this.head.next;
     if (this.head === this.tail) {
-      this.tail = null
+      this.tail = null;
     }
     console.log(this.toString());
     return data;
@@ -45,7 +49,7 @@ class Queue {
     while (currentNode) {
       queueString += `${currentNode.data}`;
       if (currentNode.next) {
-        queueString += '  |  '
+        queueString += '  |  ';
       }
       currentNode = currentNode.next;
     }
