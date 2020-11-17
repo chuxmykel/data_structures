@@ -137,8 +137,7 @@ describe('LinkedList', () => {
   });
 
   it('should create linked list from array', () => {
-    const linkedList = new LinkedList();
-    linkedList.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
+    const linkedList = LinkedList.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
 
     expect(linkedList.toString()).toBe('1,1,2,3,3,3,4,5');
   });
