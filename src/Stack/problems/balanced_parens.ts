@@ -1,4 +1,4 @@
-import { Stack } from '../';
+import { Stack } from '..';
 
 type OpenChar = '{' | '[' | '<' | '(';
 
@@ -6,7 +6,7 @@ type CloseChar = '}' | ']' | '>' | ')';
 
 export type Surround = OpenChar | CloseChar;
 
-const parenPairs: Surround[][] = [
+export const parenPairs: Surround[][] = [
   ['{', '}'],
   ['[', ']'],
   ['<', '>'],
@@ -27,7 +27,7 @@ export function matches(openChar: Surround, closeChar: Surround): boolean {
     if (parenPairs[i][0] === openChar) {
       return parenPairs[i][1] === closeChar;
     }
-  };
+  }
   return false;
 }
 

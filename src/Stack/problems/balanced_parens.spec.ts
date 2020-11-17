@@ -1,36 +1,34 @@
-import { isBalanced, matches, isOpenTerm, Surround } from './balanced_parens';
-
-const parenPairs: Surround[][] = [
-  ['{', '}'],
-  ['[', ']'],
-  ['<', '>'],
-  ['(', ')'],
-];
+import {
+  isBalanced,
+  matches,
+  isOpenTerm,
+  Surround,
+  parenPairs,
+} from './balanced_parens';
 
 describe('isBalanced()', () => {
-  it('{{}}[][{{}()}]', () => {
+  test('{{}}[][{{}()}]', () => {
     expect(isBalanced(<Surround>'{{}}[][{{}()}]')).toBe(true);
   });
 
-  it('{}{{]{}}<(>', () => {
+  test('{}{{]{}}<(>', () => {
     expect(isBalanced(<Surround>'{}{{]{}}<(>')).toBe(false);
   });
 
-  it('((]', () => {
+  test('((]', () => {
     expect(isBalanced(<Surround>'((]')).toBe(false);
   });
 
-  it('(([]{<>}([<<>>])))', () => {
+  test('(([]{<>}([<<>>])))', () => {
     expect(isBalanced(<Surround>'(([]{<>}([<<>>])))')).toBe(true);
   });
 
-  it('(())', () => {
+  test('(())', () => {
     expect(isBalanced(<Surround>'(())')).toBe(true);
   });
 });
 
 describe('isOpenTerm()', () => {
-
   it('Returns true for open characters', () => {
     parenPairs.forEach(parenPair => {
       expect(isOpenTerm(parenPair[0])).toBe(true);
