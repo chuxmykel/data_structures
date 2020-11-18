@@ -16,7 +16,7 @@ export function mergeSortedLists(
   let pointerB = listB.head;
 
   while (pointerA && pointerB) {
-    if (pointerA.data < pointerB.data) {
+    if (pointerA.data < pointerB.data || pointerA.data === pointerB.data) {
       sortedList.append(pointerA);
       pointerA = pointerA.next;
       if (!pointerA) {
@@ -25,22 +25,13 @@ export function mergeSortedLists(
           pointerB = pointerB.next;
         }
       }
-    } else if (pointerA.data > pointerB.data) {
+    } else {
       sortedList.append(pointerB);
       pointerB = pointerB.next;
       if (!pointerB) {
         while (pointerA) {
           sortedList.append(pointerA);
           pointerA = pointerA.next;
-        }
-      }
-    } else {
-      sortedList.append(pointerA);
-      pointerA = pointerA.next;
-      if (!pointerA) {
-        while (pointerB) {
-          sortedList.append(pointerB);
-          pointerB = pointerB.next;
         }
       }
     }
