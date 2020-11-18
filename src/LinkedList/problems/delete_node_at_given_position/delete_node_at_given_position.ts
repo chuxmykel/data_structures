@@ -1,4 +1,4 @@
-import { LinkedList, Node } from '../../LinkedList';
+import { LinkedList } from '../../LinkedList';
 
 export function deleteAtPosition(
   list: LinkedList,
