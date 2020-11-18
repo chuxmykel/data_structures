@@ -4,12 +4,12 @@ export function mergeSortedLists(
   listA: LinkedList,
   listB: LinkedList,
 ): LinkedList {
-	if (listA.isEmpty) {
-		return listB;
-	}
-	if (listB.isEmpty) {
-		return listA;
-	}
+  if (listA.isEmpty) {
+    return listB;
+  }
+  if (listB.isEmpty) {
+    return listA;
+  }
 
   const sortedList = new LinkedList();
   let pointerA = listA.head;
