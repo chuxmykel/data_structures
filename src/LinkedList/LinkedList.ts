@@ -9,8 +9,17 @@ export class Node {
 }
 
 export class LinkedList {
-  private _head: Node | null = null;
   private _tail: Node | null = null;
+  constructor(private _head: Node | null = null) {
+    if (_head) {
+      let current = _head;
+      while (current.next) {
+        current = current.next;
+      }
+
+      this._tail = current;
+    }
+  }
 
   get isEmpty(): boolean {
     return !this._head;
@@ -114,12 +123,6 @@ export class LinkedList {
     return deletedNode;
   }
 
-  public static fromArray(arr: any[]): LinkedList {
-    const linkedList = new LinkedList();
-    arr.forEach(item => linkedList.append(item));
-    return linkedList;
-  }
-
   public toArray(): Node[] {
     const listArray: any[] = [];
 
@@ -140,5 +143,24 @@ export class LinkedList {
     return this.toArray()
       .map(node => node.toString())
       .toString();
+  }
+
+  public reverse(): LinkedList {
+    let current = this._head;
+    let previous: Node | null = null;
+    let next: Node | null = null;
+    while (current) {
+      next = current.next;
+      current.next = previous;
+      previous = current;
+      current = next;
+    }
+    return new LinkedList(this._tail);
+  }
+
+  public static fromArray(arr: any[]): LinkedList {
+    const linkedList = new LinkedList();
+    arr.forEach(item => linkedList.append(item));
+    return linkedList;
   }
 }
