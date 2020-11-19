@@ -10,16 +10,7 @@ export class Node {
 
 export class LinkedList {
   private _tail: Node | null = null;
-  constructor(private _head: Node | null = null) {
-    if (_head) {
-      let current = _head;
-      while (current.next) {
-        current = current.next;
-      }
-
-      this._tail = current;
-    }
-  }
+  private _head: Node | null = null;
 
   get isEmpty(): boolean {
     return !this._head;
@@ -146,6 +137,7 @@ export class LinkedList {
   }
 
   public reverse(): LinkedList {
+    const initialHead = this._head;
     let current = this._head;
     let previous: Node | null = null;
     let next: Node | null = null;
@@ -155,7 +147,9 @@ export class LinkedList {
       previous = current;
       current = next;
     }
-    return new LinkedList(this._tail);
+    this._head = previous;
+    this._tail = initialHead;
+    return this;
   }
 
   public static fromArray(arr: any[]): LinkedList {
